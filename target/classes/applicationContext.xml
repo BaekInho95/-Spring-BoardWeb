@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+<context:component-scan base-package="polymorphism"></context:component-scan>
+
+<!-- <bean class="polymorphism.SonySpeaker"></bean> -->
+<bean class="polymorphism.AppleSpeaker"></bean>
+
+<!-- aop : 트랜젝션 -->
+
+<!-- db 연결시 필요한거 4가지 : id, pw, url, class이름 -->
+<bean id ="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+	<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+	<property name="username" value="scott"></property>
+	<property name="password" value="tiget"></property>
+
+
+</bean>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 	<bean id="tv" class="polymorphism.SamsungTV" init-method="initMethod" destroy-method="destoryMethod"/>
+
+ 	<bean id="tv" class="polymorphism.SamsungTV" p:speaker-ref="apple" p:price="270">
+ 		<constructor-arg index="0" ref="apple"></constructor-arg>
+ 		<constructor-arg index="1" value="2700000"></constructor-arg>
+ 		<property name="speaker" ref="apple"></property>
+ 		<property name="price" value="2700000"></property>
+ 	</bean>
+ 	
+ 	<bean id="sony" class="polymorphism.SonySpeaker"></bean>
+ 	<bean id="apple" class="polymorphism.AppleSpeaker"></bean>
+ 	
+ 	 lazy-init : 스프링 컨테이너는 해당 bean을 미리 생성하지 않고 클라이언트 
+ 						요청하는 시점에 생성한다. 메모리를 효율적으로 관리하기 위해서
+ 						이 속성을 사용함
+ 						
+ 	 <bean id="collectionBean" class="com.global.ioc.injection.CollectionBean">
+ 	 	<property name="addressList">
+ 	 	
+ 	 	<props>
+ 	 		<prop key="홍길동">서울특별시 강남구(properties)</prop>
+ 	 		<prop key="나카무라">일본 도쿄(properties)</prop>
+ 	 		<prop key="엄준식">경기도 분당시(properties)</prop>
+ 	 	</props>
+ 	 	
+ 	 	<map>
+ 	 			<entry>
+ 	 				<key>
+ 	 					<value>홍길동</value>
+ 	 				</key>
+ 	 				<value>서울특별시 강남구(map)</value>
+ 	 			</entry>
+ 	 			<entry>
+ 	 				<key>
+ 	 					<value>나카야마 유키마루</value>
+ 	 				</key>
+ 	 				<value>일본 도쿄도(map)</value>
+ 	 			</entry>
+ 	 			<entry>
+ 	 				<key>
+ 	 					<value>엄준식</value>
+ 	 				</key>
+ 	 				<value>경기도 성남시(map)</value>
+ 	 			</entry>
+ 	 		</map> 
+ 	 	
+ 	 <set value-type="java.lang.String">
+ 	 			<value>서울특별시 강남구(set)</value>
+ 	 			<value>서울특별시 영등포구(set)</value>
+ 	 			<value>서울특별시 마포구(set)</value>
+ 	 		</set> 
+ 	 	 <list>
+ 	 			<value>서울특별시 강남구</value>
+ 	 			<value>서울특별시 영등포구</value>
+ 	 			<value>서울특별시 마포구</value>
+ 	 		</list> 
+ 	 	</property>
+ 	 
+ 	 </bean> -->
+</beans>
